@@ -1,0 +1,30 @@
+---
+import { site } from "../data/site";
+---
+
+<section class="relative min-h-[50vh]">
+
+  <div
+    class="absolute inset-0 bg-cover bg-center"
+    style={`background-image: url(${site.hero.image})`}
+  ></div>
+
+  <div class="absolute inset-0 bg-black/75"></div>
+
+  <div class="relative flex min-h-[50vh] items-center justify-center">
+
+    <div class="text-center text-white px-6">
+
+      <h1 class="text-5xl md:text-7xl font-bold">
+        {site.hero.title}
+      </h1>
+
+      <p class="mt-6 text-xl">
+        {site.hero.subtitle}
+      </p>
+
+    </div>
+
+  </div>
+
+</section>

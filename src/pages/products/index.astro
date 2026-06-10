@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import ProductCard from "../../components/ProductCard.astro";
+
+const products = await getCollection("products");
+---
+
+<Layout title="Coffee | Products">
+
+  <section class="py-24 bg-taupe-800/90 text-taupe-100">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Header -->
+      <div class="text-center mb-16">
+
+        <h1 class="text-5xl font-bold text-taupe-50">
+          Our Coffee Collection
+        </h1>
+
+        <p class="mt-4 text-taupe-300">
+          Small batch roasted, crafted with care.
+        </p>
+
+      </div>
+
+      <!-- Grid -->
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+        {products.map((product) => (
+          <ProductCard product={product} />
+        ))}
+
+      </div>
+
+    </div>
+
+  </section>
+
+</Layout>

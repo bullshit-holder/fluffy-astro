@@ -1,0 +1,85 @@
+---
+const { product } = Astro.props;
+---
+
+<article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-taupe-700 bg-taupe-900 text-taupe-100 transition-all duration-300 hover:-translate-y-1">
+
+  <!-- IMAGE -->
+  <div class="relative overflow-hidden bg-taupe-800">
+
+    <img
+      src={product.data.image}
+      alt={product.data.title}
+      class="h-full w-full object-cover"
+    />
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="flex flex-1 flex-col p-6">
+
+    <!-- TITLE + INTENSITY INLINE -->
+    <div class="flex items-start justify-between gap-4">
+
+      <h3 class="text-2xl font-semibold text-taupe-50">
+        {product.data.title}
+      </h3>
+
+      {product.data.roastLevel && (
+  <div class="flex items-center gap-2 pt-1">
+
+    <span class="text-xs uppercase tracking-widest text-taupe-400">
+      Roast
+    </span>
+
+    <div class="flex gap-1">
+      {["light", "medium", "dark"].map((level, i) => {
+        const active =
+          (level === "light" && product.data.roastLevel === "light") ||
+          (level === "medium" && product.data.roastLevel === "medium") ||
+          (level === "dark" && product.data.roastLevel === "dark");
+
+        return (
+          <div
+            class={`h-2 w-2 rounded-full transition ${
+              active ? "bg-taupe-200" : "bg-taupe-700"
+            }`}
+          />
+        );
+      })}
+    </div>
+
+  </div>
+)}
+
+    </div>
+
+    <!-- Description -->
+    <p class="mt-4 text-taupe-300 leading-relaxed">
+      {product.data.description}
+    </p>
+
+    <!-- Notes -->
+    {product.data.notes && (
+      <div class="mt-4 flex flex-wrap gap-2">
+        {product.data.notes.map((note: string) => (
+          <span class="rounded-full border border-taupe-700 bg-taupe-800 px-3 py-1 text-xs text-taupe-200">
+            {note}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <!-- CTA -->
+    <div class="mt-auto pt-6">
+      <a
+        href={`/products/${product.slug}`}
+        class="inline-flex w-full items-center justify-center rounded-xl border border-taupe-700 bg-taupe-800 py-3 font-medium text-taupe-100 transition hover:bg-taupe-700"
+      >
+        View Details
+      </a>
+    </div>
+
+  </div>
+
+</article>

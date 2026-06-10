@@ -1,0 +1,95 @@
+---
+import { site } from "../data/site";
+import { Image } from "astro:assets";
+---
+
+<!-- <header class="sticky top-0 z-50 bg-taupe-800/90 backdrop-blur border-b border-taupe-700"> -->
+ 
+<header class=" bg-taupe-800 border-b border-taupe-700"> 
+
+  <div class="mx-auto max-w-7xl px-6">
+
+    <!-- Desktop -->
+    <div class="hidden md:block py-6 text-center">
+
+      <a href="/" class="inline-block">
+        <Image
+          src={site.logo.src}
+          alt={site.logo.alt}
+          width={400}
+          height={120}
+          class="h-30 w-auto object-contain mx-auto"
+        />
+      </a>
+
+      <div class="mx-auto my-4 h-px w-50 bg-taupe-600"></div>
+
+      <nav class="flex justify-center gap-10">
+        {site.navigation.map((item) => (
+          <a
+            href={item.href}
+            class="text-xs uppercase tracking-widest text-taupe-300 hover:text-taupe-500 transition"
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+    </div>
+
+    <!-- Mobile -->
+    <div class="relative flex h-20 items-center md:hidden">
+
+      <a
+        href="/"
+        class="absolute left-1/2 -translate-x-1/2"
+      >
+        <Image
+          src={site.logo.src}
+          alt={site.logo.alt}
+          width={400}
+          height={120}
+          class="h-10 w-auto mx-auto object-contain"
+        />
+      </a>
+
+      <button
+        id="mobile-menu-button"
+        class="ml-auto text-2xl text-taupe-300 hover:text-taupe-500 transition focus:outline-none"
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav
+      id="mobile-menu"
+      class="hidden border-t border-taupe-600 py-4 md:hidden"
+    >
+      <div class="flex flex-col gap-4 text-center">
+
+        {site.navigation.map((item) => (
+          <a
+            href={item.href}
+            class="text-taupe-300 hover:text-taupe-500 transition"
+          >
+            {item.label}
+          </a>
+        ))}
+
+      </div>
+    </nav>
+
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-button");
+  const menu = document.getElementById("mobile-menu");
+
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

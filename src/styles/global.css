@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Old Standard TT', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Old Standard TT', serif;
+}

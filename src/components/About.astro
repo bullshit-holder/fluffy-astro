@@ -1,0 +1,23 @@
+---
+import { site } from "../data/site";
+---
+
+<section
+  id="about"
+  class="py-24 bg-taupe-700/90 transpanrent">
+
+  <div class="max-w-4xl mx-auto px-6">
+
+    <h2 class="text-4xl font-bold mb-8 text-taupe-100">
+      {site.about.title}
+    </h2>
+
+    {site.about.paragraphs.map((p) => (
+			<p class="text-taupe-300 leading-relaxed mb-4">
+				{p}
+			</p>
+		))}
+
+  </div>
+
+</section>
