@@ -3,7 +3,8 @@ export const site = {
 	mainbackground:
 		'https://images.unsplash.com/photo-1447933601403-0c6688de566e',
 	logo: {
-		src: '/img/logo.png',
+		goat: '/img/GoatHead.png',
+		src: '/img/GoatBanner.png',
 		alt: 'Fluffy Goat Coffee',
 	},
 
@@ -35,10 +36,10 @@ export const site = {
 	},
 
 	contact: {
-		email: 'info@fluffygoatcoffee.com',
+		email: 'gus@fluffygoatcoffee.com',
 	},
 
 	footer: {
-		text: '© 2026 Fluffy Goat Coffee',
+		text: 'Fluffy Goat Coffee',
 	},
 } as const;

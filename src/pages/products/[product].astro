@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -21,7 +22,7 @@ const { product } = Astro.props;
     <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
 
       <!-- IMAGE -->
-      <div class="overflow-hidden rounded-2xl border border-taupe-700 bg-taupe-900">
+      <div class="relative overflow-hidden rounded-2xl bg-taupe-800">
 
         <img
           src={product.data.image}
@@ -55,11 +56,12 @@ const { product } = Astro.props;
 
         <!-- BACK BUTTON -->
         <div class="pt-6">
-          <a
-            href="/products"
-            class="inline-flex items-center rounded-xl border border-taupe-700 bg-taupe-800 px-6 py-3 font-medium text-taupe-100 transition hover:bg-taupe-700"
+					<a
+					href="/products"
+					class="inline-flex items-center rounded-xl border border-taupe-700 bg-taupe-800 px-6 py-3 font-medium text-taupe-100 transition hover:bg-taupe-700"
           >
-            ← Back to Coffee
+					<Icon name="mdi:arrow-left" class="h-4 w-4 text-taupe-100 inline-block mr-2" />
+           Back to Coffee
           </a>
         </div>
 

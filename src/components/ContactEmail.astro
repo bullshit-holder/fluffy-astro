@@ -1,0 +1,39 @@
+---
+import { site } from '../data/site.ts';
+import { Icon } from "astro-icon/components";
+const email = `mailto:${site.contact.email}?subject=Inquiry%20from%20Fluffy%20Goat%20Coffee%20Website`;
+---
+
+<section
+  id="contact"
+  class="py-24 bg-taupe-800 text-taupe-100"
+>
+  <div class="max-w-3xl mx-auto px-6 text-center">
+
+    <h2 class="text-4xl font-bold text-taupe-50">
+      Get in Touch
+    </h2>
+
+    <p class="mt-4 text-lg text-taupe-300 leading-relaxed">
+      We'd love to hear from you! Whether you have a question about our coffee,
+      an order, wholesale opportunities, or just want to say hello, send us an
+      email and we'll get back to you as soon as we can.
+    </p>
+
+    <div class="mt-10">
+      <a
+        href={email}
+        class="inline-flex items-center gap-3 rounded-xl border border-taupe-600 bg-taupe-900 px-6 py-4 text-lg font-medium text-taupe-50 transition hover:border-taupe-400 hover:bg-taupe-700"
+      >
+        <Icon name="mdi:email" class="h-6 w-6 text-taupe-50"/>
+
+        {site.contact.email}
+      </a>
+    </div>
+
+    <!-- <p class="mt-6 text-sm text-taupe-400">
+      We typically respond within 1–2 business days.
+    </p> -->
+
+  </div>
+</section>
